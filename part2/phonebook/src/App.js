@@ -86,7 +86,7 @@ const App = () => {
         <div>
             <SearchBar searchState={search} setSearch={setSearch} />
             <AddNewNumber submitForm={submitForm} setName={setName} setNumber={setNumber} nameState={name} numberState={number} />
-            <PhonebookDisplay isLoading={loading} persons={persons} />
+            <PhonebookDisplay isLoading={loading} persons={persons} currentSearch={search} />
         </div>
     )
 }

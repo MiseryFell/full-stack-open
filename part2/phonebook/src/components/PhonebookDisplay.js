@@ -1,24 +1,25 @@
 import PhonebookEntry from "./PhonebookEntry"
-import useState from "react"
+import { useState } from "react"
 
 const PhonebookDisplay = (props) => {
-    let persons = props.person
-    const [displayedPersons, setDisplayedPersons] = useState(persons)
+    let filteredArray = props.persons
 
     if (props.isLoading) {
         return <h1>Loading</h1>
     }
 
-    for (let i = 0; i < persons.length; i++) {
-        if (persons[i].name) {
-
+    filteredArray = props.persons.filter(person => {
+        if (props.currentSearch === '') {
+            return true
+        } else if (person.name.toLowerCase().substring(0, props.currentSearch.length) === props.currentSearch.toLowerCase()) {
+            return true
         }
-    }
+    })
 
     return (
         <div>
             <h1>Numbers</h1>
-            {persons.map((person) => {
+            {filteredArray.map((person) => {
 
                 return (
                     <PhonebookEntry key={person.id} person={person} />
