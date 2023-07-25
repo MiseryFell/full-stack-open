@@ -22,7 +22,7 @@ const PhonebookDisplay = (props) => {
             {filteredArray.map((person) => {
 
                 return (
-                    <PhonebookEntry key={person.id} person={person} />
+                    <PhonebookEntry handleDelete={props.handleDelete} key={person.id} person={person} />
                 )
             })}
         </div>
